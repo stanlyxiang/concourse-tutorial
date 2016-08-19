@@ -3,7 +3,11 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: busybox}
+  source:
+    repository: rlei/mydocker
+    tag: "centos6-build"
+    username: "hbjdocker"
+    password: "bjbigdatabj"
 
 inputs:
 - name: resource-tutorial

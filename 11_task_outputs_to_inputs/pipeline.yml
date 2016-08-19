@@ -3,7 +3,9 @@ resources:
 - name: resource-tutorial
   type: git
   source:
-    uri: https://github.com/starkandwayne/concourse-tutorial.git
+    uri: git@github.com:stanlyxiang/concourse-tutorial.git
+    branch: master
+    private_key: {{private-repo-key}}
 
 jobs:
 - name: job-pass-files
@@ -12,5 +14,9 @@ jobs:
   - get: resource-tutorial
   - task: create-some-files
     file: resource-tutorial/11_task_outputs_to_inputs/create_some_files.yml
+
+- name: job-get-files
+  public: true
+  plan:
   - task: show-some-files
     file: resource-tutorial/11_task_outputs_to_inputs/show_files.yml
